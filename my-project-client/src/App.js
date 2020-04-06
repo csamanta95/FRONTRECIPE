@@ -5,6 +5,7 @@ import NavBar from './Components/NavBar'
 import Home from './Components/Home'
 import PantryContainer from './ProfileComponents/PantryContainer'
 import RefrigeratorContainer from './ProfileComponents/RefrigeratorContainer'
+import ProfileContainer from './ProfileComponents/ProfileContainer'
 // import Search from './ProfileComponents/Search'
 import {withRouter} from 'react-router-dom'
 
@@ -14,6 +15,7 @@ state={
   user: {
     id: 0,
     username: "",
+    profiles: []
   },
   token: "",
   pantries: [],
@@ -198,6 +200,107 @@ handleAddRating = (id, number) => {
     })
     }
 
+    deleteProfile = (id) => {
+      fetch(`http://localhost:3000/profiles/${id}`, {
+          method: "DELETE"
+        })
+        .then(r => r.json())
+        .then(() => {
+      let filteredArray = this.state.user.profiles.filter(pObj => {
+        return pObj.id !== id
+      })
+      this.setState({
+        user: {
+          ...this.state.user,
+          profiles: filteredArray
+        }
+      })
+    })
+    }
+
+    handleAddRatingTwo = (id, number) => {
+      let foundObject = this.state.user.profiles.find(rate => rate.id === id)
+      fetch(`http://localhost:3000/profiles/${id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify({
+          ...foundObject,
+          rating: foundObject.rating + number
+        })
+      })
+      .then(r => r.json())
+      .then(() => {
+      // console.log(number)
+      let updated = this.state.user.profiles.map(rate => {
+        if (rate.id === id) {
+          return {
+            ...rate,
+            rating: rate.rating + number
+          }
+          } else {
+            return rate
+          } 
+        })                                           
+          this.setState({
+            user: {
+              ...this.state.user,
+              profiles: updated
+            }
+          })
+      })
+      }
+    
+      handleSubtractRatingTwo = (id, number) => {
+        let foundObject = this.state.user.profiles.find(rate => rate.id === id)
+        fetch(`http://localhost:3000/profiles/${id}`, {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify({
+            ...foundObject,
+            rating: foundObject.rating - number
+          })
+        })
+        .then(r => r.json())
+        .then(() => {
+        // console.log(number)
+        let updatedArray = this.state.user.profiles.map(rate => {
+          if (rate.id === id) {
+            return {
+              ...rate,
+              rating: rate.rating - number
+            }
+            } else {
+              return rate
+            } 
+          })                                           
+            this.setState({
+              user: {
+                ...this.state.user,
+                profiles: updatedArray
+              }
+            })
+        })
+        }
+    
+        addProfile = (pObj) => {
+          console.log(pObj)
+          this.setState({
+            user: {
+              ...this.state.user,
+              profiles: [...this.state.user.profiles, pObj]
+            }
+          })
+        }
+
+
+
+
+
+
 
 
 
@@ -235,6 +338,18 @@ renderProfile2 = (routerProps) => {
   />
 }
 
+renderProfileUser = (routerProps) => {
+  return <ProfileContainer
+    user = {this.state.user}
+    // user={this.returnSearchArray()}
+    token={this.state.token}
+    deleteProfile={this.deleteProfile}
+    handleAddRatingTwo={this.handleAddRatingTwo}
+    handleSubtractRatingTwo={this.handleSubtractRatingTwo}
+    addProfile={this.addProfile}
+  />
+}
+
 
   render(){
 console.log(this.state.user)
@@ -248,7 +363,7 @@ console.log(this.state.user)
           <Route path="/register" render={ this.renderForm } />
           <Route path="/pantry" render={ this.renderProfile}  />
           <Route path="/refrigerator" render={ this.renderProfile2}  />
-
+          <Route path="/profile" render={ this.renderProfileUser}  />
           <Route path="/" exact render={() => <Home /> } />
         </Switch>
       </div>

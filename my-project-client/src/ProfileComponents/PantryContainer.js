@@ -12,6 +12,7 @@ class PantryContainer extends Component {
 
     return (
       <div className="font">
+        <h1>Add a pantry recipe for everyone to see!</h1>
         <NewPantryForm token={this.props.token} 
         user={this.props.user}
           addPantry={this.props.addPantry}

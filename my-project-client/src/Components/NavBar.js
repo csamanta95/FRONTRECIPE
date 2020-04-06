@@ -20,6 +20,9 @@ const NavBar = () => {
           <li className="li">
             <NavLink to="/refrigerator">Refrigerator</NavLink>
           </li>
+          <li className="li">
+            <NavLink to="/profile">Profile</NavLink>
+          </li>
           
         </ul>
         

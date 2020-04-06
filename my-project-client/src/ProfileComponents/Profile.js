@@ -1,22 +1,21 @@
 import React, {Component} from 'react'
 // import Comment from './Comment'
 import ScrollUpButton from "react-scroll-up-button";
-import InputRange from 'react-input-range';
 
 
-class Pantry extends Component {
+class Profile extends Component {
 
   
     handleDelete = (id) => {
-      this.props.deletePantry(this.props.pantry.id);
+      this.props.deleteProfile(this.props.profile.id);
       }
     
     handleAddRating = () => {
-        this.props.handleAddRating(this.props.pantry.id, 1);
+        this.props.handleAddRatingTwo(this.props.profile.id, 1);
     }
 
     handleSubtractRating = () => {
-      this.props.handleSubtractRating(this.props.pantry.id, 1);
+      this.props.handleSubtractRatingTwo(this.props.profile.id, 1);
   }
     
     state = {
@@ -31,31 +30,28 @@ class Pantry extends Component {
 
 
 render(){
-    let {pname, pimage, prating, plevel, pingredient, pdirection} = this.props.pantry
     // console.log(this.props)
-    // let arrayOfComments = this.props.actor.comments.map((comment, index) => {
-    //     return <Comment key={index} comment={comment}/>
-    // <p>{arrayOfComments} </p>
-    // })
+    let {name, image, rating, level, ingredient, direction} = this.props.profile
+    
   return(
         <div className="card" >
-          <img src={pimage} alt={pname}
+          <img src={image} alt={name}
             className="card__image"
             onClick={ this.handleClick } 
           />
-            <p>{pname}</p>
-            <p>Level: {plevel}</p>
+            <p>{name}</p>
+            <p>Level: {level}</p>
             <h6>Click on the image to switch between ingredients and the recipe</h6>
             <div className="wrapper">
             {
-                this.state.haveIBeenClickedOn ? pdirection : pingredient
+                this.state.haveIBeenClickedOn ? direction : ingredient
               }
             </div>
             <div className="card__detail">
             <div className= "update">
             <div class="value-button" id="decrease" onClick={this.handleSubtractRating} value="Decrease Value">-</div>
-            <input type="number" id="number" value={prating}  />
             
+            <input type="number" id="number" value={rating}  />
             
             <div class="value-button" id="increase" onClick={this.handleAddRating} value="Increase Value">+</div>
             </div>
@@ -93,4 +89,4 @@ render(){
 }
 
 
-export default Pantry;
+export default Profile;
