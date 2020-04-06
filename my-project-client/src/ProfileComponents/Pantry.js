@@ -59,9 +59,11 @@ render(){
             
             <div class="value-button" id="increase" onClick={this.handleAddRating} value="Increase Value">+</div>
             </div>
+            
+            <div className="garbagenew">
             <div id="app-cover">
-  <input type="checkbox" id="checkbox" onClick={this.handleDelete}/>
-  <div className = "garbage">
+  <input type="checkbox" id="checkbox" onClick={this.handleDelete} className="garbagei"/>
+  <div className = "garbage"></div>
   <div id="bin-icon">
     <div id="lid"></div>
     <div id="box">

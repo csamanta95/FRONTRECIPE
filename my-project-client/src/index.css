@@ -412,10 +412,22 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 
-body:active, input:active
+.garbagenew:active, garbagei:active
 {
     cursor: url(http://k003.kiwi6.com/hotlink/3p6w4icbzt/c1a.png) 32 32, auto;
     cursor: -webkit-image-set( url(http://k003.kiwi6.com/hotlink/3p6w4icbzt/c1a.png) 1x, url(http://k003.kiwi6.com/hotlink/6ma7828al1/c2a.png) 2x ) 32 32, auto;
+}
+
+.garbagenew, garbagei
+{
+    cursor: url(http://k003.kiwi6.com/hotlink/vp054ir5gt/c1.png) 32 32, auto;
+        cursor: -webkit-image-set(url(http://k003.kiwi6.com/hotlink/vp054ir5gt/c1.png) 1x,url(http://k003.kiwi6.com/hotlink/z6fy599487/c2.png) 4x) 32 32, auto;
+}
+
+.garbagenew:active, garbagei:active
+{
+    cursor: url(http://k003.kiwi6.com/hotlink/3p6w4icbzt/c1a.png) 32 32, auto;
+    cursor: -webkit-image-set( url(http://k003.kiwi6.com/hotlink/3p6w4icbzt/c1a.png) 1x, url(http://k003.kiwi6.com/hotlink/6ma7828al1/c2a.png) 4x ) 32 32, auto;
 }
 
 #app-cover
@@ -423,13 +435,13 @@ body:active, input:active
     position: absolute;
     top: 15%;
     right: 0;
-    left: 80%;
-    width: 60px;
-    height: 60px;
+    left: 81%;
+    width: 70px;
+    height: 70px;
     margin: -98px auto 0 auto;
     background-color: #fff;
     border-radius: 50%;
-    box-shadow: 0 0 0 8px #feeeed;
+    box-shadow: 0 0 0 8px white;
     overflow: hidden;
 }
 
@@ -440,8 +452,8 @@ body:active, input:active
     right: 0;
     bottom: 0;
     left: 0;
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     margin: 0;
     opacity: 0;
     z-index: 3;
@@ -453,8 +465,8 @@ body:active, input:active
     top: 50%;
     right: 0;
     left: 0;
-    width: 40px;
-    height: 50px;
+    width: 42px;
+    height: 58px;
     margin: -29px auto 0 auto;
     border-radius: 50%;
     z-index: 2;
@@ -463,7 +475,7 @@ body:active, input:active
 #lid
 {
     position: relative;
-    width: 40px;
+    width: 50px;
     height: 4px;
     left: -4px;
     border-radius: 4px;
@@ -538,26 +550,26 @@ body:active, input:active
     bottom: -20px;
     width: 0;
     height: 0;
-    background-color: #03A9F4;
+    background-color: #FFD700;
     border-radius: 50%;
-    transition: 0.25s ease all;
+    transition: 0.10s ease all;
     z-index: 1;
 }
 
 #lid, #lid:before, #box, #bin-lines, #bin-lines:before, #bin-lines:after
 {
-    background-color: #F44336;
-    transition: 0.2s ease background-color;
+    background-color: #DD5454;
+    transition: 0.1s ease background-color;
 }
 
 #checkbox:checked ~ #bin-icon #lid, #checkbox:checked ~ #bin-icon #lid:before, #checkbox:checked ~ #bin-icon #box, #checkbox:checked ~ #bin-icon #box-inner
 {
-    background-color: #fff;
+    background-color: white;
 }
 
 #checkbox:checked ~ #bin-icon #bin-lines, #checkbox:checked ~ #bin-icon #bin-lines:before, #checkbox:checked ~ #bin-icon #bin-lines:after
 {
-    background-color: #03A9F4;
+    background-color: #FFD700;
 }
 
 #checkbox:checked + #bin-icon #box
@@ -576,34 +588,3 @@ body:active, input:active
     height: 226px;
 }
 
-@keyframes shake
-{
-    0%{  transform: rotateZ(3deg); }
-    25%{  transform: rotateZ(0);}
-    75%{ transform: rotateZ(-3deg); }
-    100%{ transform: rotateZ(0); }
-}
-
-@keyframes lift-up
-{
-    0%{ top:0; }
-    50%{ top:-35px;}
-    100%{ top:0; }
-}
-
-@keyframes shake_u
-{
-    0%{ transform: rotateZ(0); }
-    25%{ transform:rotateZ(-15deg); }
-    50%{ transform:rotateZ(0deg); }
-    75%{ transform:rotateZ(15deg); }
-    100%{ transform:rotateZ(0); }
-}
-
-@keyframes shake_l
-{
-    0%{ transform:rotateZ(0); }
-    80%{ transform:rotateZ(3deg); }
-    90%{ transform:rotateZ(-3deg); }
-    100%{ transform:rotateZ(0); }
-}
