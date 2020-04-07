@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Refrigerator from './Refrigerator'
 import NewRefrigeratorForm from './NewRefrigeratorForm'
-
+import Rsearch from './Rsearch'
+import Rdropdown from './Rdropdown'
 
 
 class RefrigeratorContainer extends Component {
@@ -12,7 +13,15 @@ class RefrigeratorContainer extends Component {
 
     return (
       <div className="font">
-         <h1 className="headingp">Add a refrigerator recipe for everyone to see!</h1>
+        <Rdropdown
+        filterTerm={this.props.filterTerm}
+        changeFilterTerm= {this.props.changeFilterTerm} />
+        <Rsearch
+        searchTerm={this.props.searchTerm} 
+        changeTheSearchTerm={this.props.changeTheSearchTerm }
+        />
+        <br />
+         <h1 className="headingp">Share a recipe with refrigerator items with everyone!</h1>
         <NewRefrigeratorForm token={this.props.token} 
         user={this.props.user}
           addRefrigerator={this.props.addRefrigerator}

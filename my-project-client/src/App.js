@@ -320,30 +320,68 @@ handleAddRating = (id, number) => {
         }
 
         changeTheSearchTerm = (termOfChild) => {
-        // console.log(termOfChild)
+        console.log(termOfChild)
           this.setState({
             searchTerm: termOfChild
           })
         }
 
         returnSearchArray = () => {
+          let returnArray = this.state.pantries
+          if (this.state.filterTerm === "beginner") 
+          returnArray= this.state.pantries.filter( (p) =>{
+            return p.plevel.indexOf(this.state.filterTerm) !== -1;
+          })
+      
+          if (this.state.filterTerm === "intermediate") 
+          returnArray= this.state.pantries.filter( (p) =>{
+            return p.plevel.indexOf(this.state.filterTerm) !== -1; 
+          })
+
+          if (this.state.filterTerm === "advanced") 
+          returnArray= this.state.pantries.filter( (p) =>{
+            return p.plevel.indexOf(this.state.filterTerm) !== -1;
+          })
           
-            let returnArray= this.state.pantries.filter((act) => {
+          
+          returnArray= returnArray.filter((act) => {
               return act.pname.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || act.pingredient.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || act.pdirection.toLowerCase().includes(this.state.searchTerm.toLowerCase())
             })
             
-            return returnArray
+        return returnArray
         }
 
         changeFilterTerm= (termFromChild) => {
+          console.log(termFromChild)
           this.setState({
             filterTerm: termFromChild  
           })
         }
-
-
-
-
+  
+          returnSearchArray2 = () => {
+            let returnArray = this.state.refrigerators
+            if (this.state.filterTerm === "beginner") 
+            returnArray= this.state.refrigerators.filter( (p) =>{
+              return p.rlevel.indexOf(this.state.filterTerm) !== -1;
+            })
+        
+            if (this.state.filterTerm === "intermediate") 
+            returnArray= this.state.refrigerators.filter( (p) =>{
+              return p.rlevel.indexOf(this.state.filterTerm) !== -1; 
+            })
+  
+            if (this.state.filterTerm === "advanced") 
+            returnArray= this.state.refrigerators.filter( (p) =>{
+              return p.rlevel.indexOf(this.state.filterTerm) !== -1;
+            })
+            
+            
+            returnArray= returnArray.filter((act) => {
+                return act.rname.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || act.ringredient.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || act.rdirection.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+              })
+              
+          return returnArray
+          }
 
 
 renderForm = (routerProps) => {
@@ -367,17 +405,22 @@ renderProfile = (routerProps) => {
     handleSubtractRating={this.handleSubtractRating}
     searchTerm={this.state.searchTerm} 
     changeTheSearchTerm={this.changeTheSearchTerm }
+    filterTerm={this.state.filterTerm}
+    changeFilterTerm= {this.changeFilterTerm}
   />
 }
 
 renderProfile2 = (routerProps) => {
   return <RefrigeratorContainer
-    refrigerator = {this.state.refrigerators}
-    // user={this.returnSearchArray()}
+    // refrigerator = {this.state.refrigerators}
+    refrigerator={this.returnSearchArray2()}
     user={this.state.user}
     token={this.state.token}
     addRefrigerator={this.addRefrigerator}
-    // handleRating={this.handleRating}
+    searchTerm={this.state.searchTerm} 
+    changeTheSearchTerm={this.changeTheSearchTerm }
+    filterTerm={this.state.filterTerm}
+    changeFilterTerm= {this.changeFilterTerm}
   />
 }
 
@@ -395,7 +438,6 @@ renderProfileUser = (routerProps) => {
 
 
   render(){
-console.log(this.state.user)
     return (
       <div className="App">
         <NavBar/>

@@ -33,14 +33,13 @@ class NewPantryForm extends Component {
 
 
   render() {
-    console.log(this.props)
     return (
 
     <div className="second-form">
-    <div class="form-style-3">
-     <form class="form-style-4" action="" method="post" onSubmit={this.handleSubmit}>
+    <div className="form-style-3">
+     <form className="form-style-4" action="" method="post" onSubmit={this.handleSubmit}>
      <h1 className="pantry">Pantry Recipe</h1>
-      <label for="field3">
+      <label htmlFor="field3">
       <span>Name</span><input type="text"  name="pname" value={this.state.pname} onChange={this.handleChange} />
       </label>
       <label for="field3">

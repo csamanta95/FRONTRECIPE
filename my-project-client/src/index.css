@@ -22,7 +22,7 @@ code {
   width: 27rem;
   height: 44rem;
   display: inline-grid;
-  margin: 1rem 2rem;
+  margin: 0.5rem 1rem;
   font-family: Chalkduster, fantasy;
   flex-wrap: wrap;
   border-radius: 40px;
@@ -938,4 +938,61 @@ color : #2f3640;
   position: absolute;
 	top: 9%;
 	left: 10%;
+}
+
+
+.box {
+  position: absolute;
+  top: 17%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  font-family: Chalkduster, fantasy;
+  font-size: 30px;
+}
+
+.box select {
+  background-color: #EE78D1;
+  color: white;
+  padding: 12px;
+  width: 200px;
+  border: none;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  font-family: Chalkduster, fantasy;
+  font-size: 20px;
+}
+
+.box::before {
+  content: "\f13a";
+  font-family: Chalkduster, fantasy;
+  
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  color: #EE78D1;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-family: Chalkduster, fantasy;
+}
+
+.box select option {
+  padding: 30px;
+  font-family: Chalkduster, fantasy;
+  color: #EE78D1;
+}
+
+.box1{
+  font-family: Chalkduster, fantasy;
 }

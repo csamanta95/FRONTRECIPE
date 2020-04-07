@@ -1,13 +1,12 @@
 import React from 'react';
 
-class Psearch extends React.Component {
+class Rsearch extends React.Component {
 
   handleChange = (e) => {
     this.props.changeTheSearchTerm(e.target.value)
   }
 
-  
-
+ 
 
   render() {
   return (
@@ -24,12 +23,10 @@ class Psearch extends React.Component {
     </i>
 </button>
 </div>
-
-     
-    </div> 
+</div> 
   );
 }
 
 }
 
-export default Psearch;
+export default Rsearch;
