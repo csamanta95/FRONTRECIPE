@@ -21,7 +21,7 @@ class RefrigeratorContainer extends Component {
         changeTheSearchTerm={this.props.changeTheSearchTerm }
         />
         <br />
-         <h1 className="headingp">Share a recipe with refrigerator items with everyone!</h1>
+         <h1 className="headingp">Share a recipe with refrigerator foods with everyone!</h1>
         <NewRefrigeratorForm token={this.props.token} 
         user={this.props.user}
           addRefrigerator={this.props.addRefrigerator}
@@ -30,8 +30,7 @@ class RefrigeratorContainer extends Component {
           {
             this.props.refrigerator.map((refrigerator) => { 
               return <Refrigerator key={refrigerator.id} refrigerator={refrigerator}
-            //   deleteActor={this.props.deleteActor}
-            //   handleRating={this.props.handleRating}
+            updateCheese={this.props.updateCheese}
               />
             })
           }

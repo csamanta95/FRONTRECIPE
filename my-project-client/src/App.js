@@ -118,89 +118,23 @@ addPantry = (pInfo) => {
 
 }
 
-deletePantry = (id) => {
-  // console.log(id)
-  fetch(`http://localhost:3000/pantries/${id}`, {
-      method: "DELETE"
-    })
-    .then(r => r.json())
-    .then(() => {
-  let filteredArray = this.state.pantries.filter(pObj => {
-    return pObj.id !== id
-  })
-  this.setState({
+// deletePantry = (id) => {
+//   // console.log(id)
+//   fetch(`http://localhost:3000/pantries/${id}`, {
+//       method: "DELETE"
+//     })
+//     .then(r => r.json())
+//     .then(() => {
+//   let filteredArray = this.state.pantries.filter(pObj => {
+//     return pObj.id !== id
+//   })
+//   this.setState({
     
-      pantries: filteredArray
+//       pantries: filteredArray
     
-  })
-})
-}
-
-handleAddRating = (id, number) => {
-  let foundObject = this.state.pantries.find(rate => rate.id === id)
-  fetch(`http://localhost:3000/pantries/${id}`, {
-    method: "PATCH",
-    headers: {
-      "content-type": "application/json"
-    },
-    body: JSON.stringify({
-      ...foundObject,
-      prating: foundObject.prating + number
-    })
-  })
-  .then(r => r.json())
-  .then(() => {
-  // console.log(number)
-  let updatedArray = this.state.pantries.map(rate => {
-    if (rate.id === id) {
-      return {
-        ...rate,
-        prating: rate.prating + number
-      }
-      } else {
-        return rate
-      } 
-    })                                           
-      this.setState({
-        
-          pantries: updatedArray
-        
-      })
-  })
-  }
-
-  handleSubtractRating = (id, number) => {
-    let foundObject = this.state.pantries.find(rate => rate.id === id)
-    fetch(`http://localhost:3000/pantries/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: JSON.stringify({
-        ...foundObject,
-        prating: foundObject.prating - number
-      })
-    })
-    .then(r => r.json())
-    .then(() => {
-    // console.log(number)
-    let updatedArray = this.state.pantries.map(rate => {
-      if (rate.id === id) {
-        return {
-          ...rate,
-          prating: rate.prating - number
-        }
-        } else {
-          return rate
-        } 
-      })                                           
-        this.setState({
-          
-            pantries: updatedArray
-          
-        })
-    })
-    }
+//   })
+// })
+// }
 
     deleteProfile = (id) => {
       fetch(`http://localhost:3000/profiles/${id}`, {
@@ -384,6 +318,68 @@ handleAddRating = (id, number) => {
           }
 
 
+          updateCheese = (id, number) => {
+            let foundObject = this.state.refrigerators.find(rate => rate.id === id)
+            fetch(`http://localhost:3000/refrigerators/${id}`, {
+              method: "PATCH",
+              headers: {
+                "content-type": "application/json"
+              },
+              body: JSON.stringify({
+                ...foundObject,
+                rrating: foundObject.rrating + number
+              })
+            })
+            .then(r => r.json())
+            .then(() => {
+            // console.log(number)
+            let updatedArray = this.state.refrigerators.map(rate => {
+              if (rate.id === id) {
+                return {
+                  ...rate,
+                  rrating: rate.rrating + number
+                }
+                } else {
+                  return rate
+                } 
+              })                                           
+                this.setState({
+                    refrigerators: updatedArray
+                })
+            })
+            }
+
+            updateChocolate = (id, number) => {
+              let foundObject = this.state.pantries.find(rate => rate.id === id)
+              fetch(`http://localhost:3000/pantries/${id}`, {
+                method: "PATCH",
+                headers: {
+                  "content-type": "application/json"
+                },
+                body: JSON.stringify({
+                  ...foundObject,
+                  prating: foundObject.prating + number
+                })
+              })
+              .then(r => r.json())
+              .then(() => {
+              // console.log(number)
+              let updatedArray = this.state.pantries.map(rate => {
+                if (rate.id === id) {
+                  return {
+                    ...rate,
+                    prating: rate.prating + number
+                  }
+                  } else {
+                    return rate
+                  } 
+                })                                           
+                  this.setState({
+                      pantries: updatedArray
+                  })
+              })
+              }
+
 renderForm = (routerProps) => {
   if(routerProps.location.pathname === "/login"){
     return <Form formName="Login Form" handleSubmit={this.handleLoginSubmit}/>
@@ -400,9 +396,8 @@ renderProfile = (routerProps) => {
     pantry={this.returnSearchArray()}
     token={this.state.token}
     addPantry={this.addPantry}
-    deletePantry={this.deletePantry}
-    handleAddRating={this.handleAddRating}
-    handleSubtractRating={this.handleSubtractRating}
+    // deletePantry={this.deletePantry}
+    updateChocolate={this.updateChocolate}
     searchTerm={this.state.searchTerm} 
     changeTheSearchTerm={this.changeTheSearchTerm }
     filterTerm={this.state.filterTerm}
@@ -421,6 +416,7 @@ renderProfile2 = (routerProps) => {
     changeTheSearchTerm={this.changeTheSearchTerm }
     filterTerm={this.state.filterTerm}
     changeFilterTerm= {this.changeFilterTerm}
+    updateCheese={this.updateCheese}
   />
 }
 

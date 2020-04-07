@@ -18,7 +18,7 @@ class PantryContainer extends Component {
         searchTerm={this.props.searchTerm} 
         changeTheSearchTerm={this.props.changeTheSearchTerm } />
         <br />
-        <h1 className="headingp">Share a recipe with pantry items with everyone!</h1>
+        <h1 className="headingp">Share a recipe with pantry foods with everyone!</h1>
         <NewPantryForm token={this.props.token} 
         user={this.props.user}
           addPantry={this.props.addPantry}
@@ -27,9 +27,8 @@ class PantryContainer extends Component {
           {
             this.props.pantry.map((pantry) => { 
               return <Pantry key={pantry.id} pantry={pantry}
-              deletePantry={this.props.deletePantry}
-              handleAddRating={this.props.handleAddRating}
-              handleSubtractRating={this.props.handleSubtractRating}
+              // deletePantry={this.props.deletePantry}
+              updateChocolate={this.props.updateChocolate}
               />
             })
           }

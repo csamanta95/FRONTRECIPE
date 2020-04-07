@@ -996,3 +996,17 @@ color : #2f3640;
 .box1{
   font-family: Chalkduster, fantasy;
 }
+
+.cheese{
+  width: 20% !important;
+  height: 40% !important;
+}
+
+.likes{
+  color: #45b3e7;
+}
+
+.cheese2{
+  width: 28% !important;
+  height: 50% !important;
+}

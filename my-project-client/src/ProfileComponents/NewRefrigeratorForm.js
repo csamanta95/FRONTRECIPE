@@ -31,7 +31,7 @@ class NewRefrigeratorForm extends Component {
 
 
   render() {
-    console.log(this.props)
+    
     return (
 
     <div className="second-form">

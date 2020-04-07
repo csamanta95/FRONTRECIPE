@@ -7,17 +7,21 @@ import InputRange from 'react-input-range';
 class Pantry extends Component {
 
   
-    handleDelete = (id) => {
-      this.props.deletePantry(this.props.pantry.id);
-      }
+    // handleDelete = (id) => {
+    //   this.props.deletePantry(this.props.pantry.id);
+    //   }
     
-    handleAddRating = () => {
-        this.props.handleAddRating(this.props.pantry.id, 1);
-    }
+  //   handleAddRating = () => {
+  //       this.props.handleAddRating(this.props.pantry.id, 1);
+  //   }
 
-    handleSubtractRating = () => {
-      this.props.handleSubtractRating(this.props.pantry.id, 1);
+  //   handleSubtractRating = () => {
+  //     this.props.handleSubtractRating(this.props.pantry.id, 1);
+  // }
+  handleClick2 = () => {
+    this.props.updateChocolate(this.props.pantry.id, 1)
   }
+
     
     state = {
         haveIBeenClickedOn: false
@@ -45,38 +49,15 @@ render(){
           />
             <p>{pname}</p>
             <p>Level: {plevel}</p>
-            <h6>Click on the image to switch between ingredients and the recipe</h6>
+            <h6>Click on the image to switch between ingredients and the recipe and chocolate to like</h6>
             <div className="wrapper">
             {
                 this.state.haveIBeenClickedOn ? pdirection : pingredient
               }
             </div>
             <div className="card__detail">
-            <div className= "update">
-            <div class="value-button" id="decrease" onClick={this.handleSubtractRating} value="Decrease Value">-</div>
-            <input type="number" id="number" value={prating}  />
-            
-            
-            <div class="value-button" id="increase" onClick={this.handleAddRating} value="Increase Value">+</div>
-            </div>
-            
-            <div className="garbagenew">
-            <div id="app-cover">
-            <input type="checkbox" id="checkbox" onClick={this.handleDelete} className="garbagei"/>
-            <div className = "garbage"></div>
-                <div id="bin-icon">
-                <div id="lid"></div>
-                <div id="box">
-              <div id="box-inner">
-                  <div id="bin-lines"></div>
-                 </div>
-              </div>
-              </div>
-          <div id="layer"></div>
-        </div>
-          </div>
-            
-            
+            <img src="https://i.imgur.com/58roJMc.png?1" title="source: imgur.com" className="cheese2" onClick={this.handleClick2}/>
+            <p className="likes">Likes: {prating}</p>
             </div>
             <div>
             <ScrollUpButton className="scroll"/>
