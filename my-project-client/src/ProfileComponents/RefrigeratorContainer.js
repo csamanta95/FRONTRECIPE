@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Refrigerator from './Refrigerator'
-// import NewPantryForm from './NewPantryForm'
+import NewRefrigeratorForm from './NewRefrigeratorForm'
 
 
 
@@ -12,7 +12,11 @@ class RefrigeratorContainer extends Component {
 
     return (
       <div className="font">
-        
+         <h1 className="headingp">Add a refrigerator recipe for everyone to see!</h1>
+        <NewRefrigeratorForm token={this.props.token} 
+        user={this.props.user}
+          addRefrigerator={this.props.addRefrigerator}
+           />
         <ol>
           {
             this.props.refrigerator.map((refrigerator) => { 

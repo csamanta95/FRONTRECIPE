@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import Pantry from './Pantry'
 import NewPantryForm from './NewPantryForm'
-
+import Psearch from './Psearch'
 
 
 class PantryContainer extends Component {
 
-  render() {
-    // let {id, username, actors} = this.props.director
-// console.log(this.props.pantry)
 
+  render() {
+    console.log(this.props)
     return (
       <div className="font">
-        <h1>Add a pantry recipe for everyone to see!</h1>
+        <Psearch
+        searchTerm={this.props.searchTerm} 
+        changeTheSearchTerm={this.props.changeTheSearchTerm } />
+        <br />
+        <h1 className="headingp">Add a pantry recipe for everyone to see!</h1>
         <NewPantryForm token={this.props.token} 
         user={this.props.user}
           addPantry={this.props.addPantry}

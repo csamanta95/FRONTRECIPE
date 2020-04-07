@@ -48,25 +48,45 @@ class NewProfileForm extends Component {
     })
   }
 
+  
+
+
+
+
+
+  
   render() {
     console.log(this.props)
     return (
 
     <div className="second-form">
-    <div class="form-style-3">
-      <form onSubmit={this.handleSubmit}>
-      <fieldset><legend>Add another Secret Recipe</legend>
+<body class="contactBody">   
+        <div class="wrapper">
+        <div class="title">
+           
+      
+        </div>
+      
+
+        <form class="form" onSubmit={this.handleSubmit}>
+          <h2 className="private">Add your private recipe:</h2>
+          <input type="text" class="name entry " placeholder="Name" name="name" value={this.state.name} onChange={this.handleChange}/>
+          
+          <input type="url" class="email entry" placeholder="Image" name="image" value={this.state.image} onChange={this.handleChange}/>
+          <input type="text" class="email entry" placeholder="Rating(0-10)" name="rating" value={this.state.rating} onChange={this.handleChange}/>
+          <input type="text" class="email entry" placeholder="Level" name="level" value={this.state.level} onChange={this.handleChange}/>
+          
+          <textarea class="message entry" placeholder="Ingredients" name="ingredient" value={this.state.ingredient} onChange={this.handleChange}></textarea> 
+          <textarea class="message entry" placeholder="Directions" name="direction" value={this.state.direction} onChange={this.handleChange}></textarea> 
+          
+          <button class="submit entry" onclick="thanks()">Submit</button>
+        </form>  
         
-        <label for="field1"><span>Name<span className="required">*</span></span><input type="text" class="input-field" name="name" value={this.state.name} onChange={this.handleChange} /></label>
-        <label for="field2"><span>Image<span className="required">*</span></span><input type="url" class="input-field" name="image" value={this.state.image} onChange={this.handleChange} /></label>
-        <label for="field3"><span>Rating<span className="required">*</span></span><input type="text" class="input-field" name="rating" value={this.state.rating} onChange={this.handleChange} /></label>
-        <label for="field4"><span>Level<span className="required">*</span></span><input type="text" class="input-field" name="level" value={this.state.level} onChange={this.handleChange} /></label>
-        <label for="field4"><span>Ingredients<span className="required">*</span></span><input type="text" class="input-field" name="ingredient" value={this.state.ingredient} onChange={this.handleChange} /></label>
-        <label for="field4"><span>Directions<span className="required">*</span></span><input type="text" class="input-field" name="direction" value={this.state.direction} onChange={this.handleChange} /></label>
-        <label><span> </span><input type="submit" value="Submit" /></label>
-          </fieldset>
-      </form>
-    </div>
+        <div class="shadow"></div>
+      </div>
+      
+    <script src="app.js"></script>
+</body>
     </div>
     );
   }

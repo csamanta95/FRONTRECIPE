@@ -12,13 +12,10 @@ console.log(this.props.user)
 
     return (
       <div className="font">
-        <NewProfileForm token={this.props.token}
-        user={this.props.user} 
-          addProfile={this.props.addProfile}
-           />
+        
 
         
-       <h1 className="private">Your private recipes</h1>
+       <h1 className="private2">Your private recipes</h1>
         <ol>
           {
             this.props.user.profiles.map((profile) => { 
@@ -31,7 +28,10 @@ console.log(this.props.user)
           }
         </ol>
 
-        
+        <NewProfileForm token={this.props.token}
+        user={this.props.user} 
+          addProfile={this.props.addProfile}
+           />
         
          
          

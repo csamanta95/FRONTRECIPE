@@ -19,7 +19,9 @@ state={
   },
   token: "",
   pantries: [],
-  refrigerators: []
+  refrigerators: [],
+  searchTerm: "",
+  filterTerm: "All"
 }
 
 componentDidMount() {
@@ -296,9 +298,48 @@ handleAddRating = (id, number) => {
           })
         }
 
+        addRefrigerator = (rInfo) => {
+          console.log(rInfo)
+          fetch("http://localhost:3000/refrigerators", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              "Authorization": `Bearer ${this.props.token}`
+            },
+            body: JSON.stringify(rInfo)
+          })
+          .then(r => r.json())
+          .then(results => {
+            console.log(results)
+            let newArray = [...this.state.refrigerators, results]
+            this.setState({
+              refrigerators: newArray
+            })
+          }) 
+        
+        }
 
+        changeTheSearchTerm = (termOfChild) => {
+        // console.log(termOfChild)
+          this.setState({
+            searchTerm: termOfChild
+          })
+        }
 
+        returnSearchArray = () => {
+          
+            let returnArray= this.state.pantries.filter((act) => {
+              return act.pname.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || act.pingredient.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || act.pdirection.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+            })
+            
+            return returnArray
+        }
 
+        changeFilterTerm= (termFromChild) => {
+          this.setState({
+            filterTerm: termFromChild  
+          })
+        }
 
 
 
@@ -316,14 +357,16 @@ renderForm = (routerProps) => {
 renderProfile = (routerProps) => {
   return <PantryContainer
     
-    pantry={this.state.pantries}
+    // pantry={this.state.pantries}
     user={this.state.user}
-    // director={this.returnSearchArray()}
+    pantry={this.returnSearchArray()}
     token={this.state.token}
     addPantry={this.addPantry}
     deletePantry={this.deletePantry}
     handleAddRating={this.handleAddRating}
     handleSubtractRating={this.handleSubtractRating}
+    searchTerm={this.state.searchTerm} 
+    changeTheSearchTerm={this.changeTheSearchTerm }
   />
 }
 
@@ -333,7 +376,7 @@ renderProfile2 = (routerProps) => {
     // user={this.returnSearchArray()}
     user={this.state.user}
     token={this.state.token}
-    
+    addRefrigerator={this.addRefrigerator}
     // handleRating={this.handleRating}
   />
 }
