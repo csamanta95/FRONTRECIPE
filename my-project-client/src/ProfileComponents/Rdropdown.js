@@ -15,6 +15,7 @@ handleSubmit = (e) => {
         <option className ="box1" value="beginner">beginner</option>
         <option className ="box1" value="intermediate">intermediate</option>
         <option className ="box1" value="advanced">advanced</option>
+        <option className ="box1" value="popularity">popularity</option>
       </select>
     </div>
     );

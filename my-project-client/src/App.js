@@ -277,7 +277,9 @@ addPantry = (pInfo) => {
             return p.plevel.indexOf(this.state.filterTerm) !== -1;
           })
           
-          
+          if (this.state.filterTerm === "popularity") 
+            returnArray.sort((a, b) =>  b.prating - a.prating)
+
           returnArray= returnArray.filter((act) => {
               return act.pname.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || act.pingredient.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || act.pdirection.toLowerCase().includes(this.state.searchTerm.toLowerCase())
             })
@@ -308,7 +310,9 @@ addPantry = (pInfo) => {
             returnArray= this.state.refrigerators.filter( (p) =>{
               return p.rlevel.indexOf(this.state.filterTerm) !== -1;
             })
-            
+
+            if (this.state.filterTerm === "popularity") 
+            returnArray.sort((a, b) =>  b.rrating - a.rrating)
             
             returnArray= returnArray.filter((act) => {
                 return act.rname.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || act.ringredient.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || act.rdirection.toLowerCase().includes(this.state.searchTerm.toLowerCase())
