@@ -14,61 +14,6 @@ code {
 
 
 
-
-.card {
-  text-align: center; 
-  border: #FFD700 solid 3px; 
-  padding: 1rem;
-  width: 27rem;
-  height: 44rem;
-  display: inline-grid;
-  margin: 0.5rem 1rem;
-  font-family: Chalkduster, fantasy;
-  flex-wrap: wrap;
-  border-radius: 40px;
-
-
-  /* #FFCB47 */
-}
-
-.card{
-  position: relative;
-  
-  background: white;
-  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
-  /* color: white; */
-  box-shadow: 20px 20px rgba(0,0,0,.15);
-  transition: all .4s ease;
-}
-
-.card:hover {
-  /* transform: scale(0.9, 0.9);
-  box-shadow: 5px 5px 30px 15px #FFD700, 
-    -5px -5px 30px 15px rgba(0,0,0,0.22); */
-    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
-  box-shadow: 10px 10px #FFD700;
-}
-
-.card img {
-  
-    
-    height: 12rem;
-    width:18rem;
-    justify-self: center;
-  
-  background-size: cover;
-  
-}
-
-.wrapper, .card__detail p {
-  flex: 1 1 auto;
-  font-size: 0.875rem;
-  line-height: 1.1;
-  margin-bottom: 1.25rem;
-}
-
-
-
 .li:hover {
   background-image: url('https://scottyzen.sirv.com/Images/v/button.png');
   background-size: 100% 100%;
@@ -443,7 +388,7 @@ input[type=number]::-webkit-outer-spin-button {
 #app-cover
 {
     position: absolute;
-    top: 15%;
+    top: 20%;
     right: 0;
     left: 81%;
     width: 70px;
@@ -1010,3 +955,115 @@ color : #2f3640;
   width: 28% !important;
   height: 50% !important;
 }
+
+.card {
+  text-align: center; 
+  border: #FFD700 solid 3px; 
+  padding: 1rem;
+  width: 27rem;
+  /* height: 44rem; */
+  display: inline-grid;
+  margin: 0.5rem 1rem;
+  font-family: Chalkduster, fantasy;
+  flex-wrap: wrap;
+  border-radius: 40px;
+  flex-direction: column;
+  overflow: hidden;
+
+  
+} 
+
+.card{
+  position: relative;
+  
+  background: white;
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+  
+  box-shadow: 20px 20px rgba(0,0,0,.15);
+  transition: all .4s ease;
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px #FFD700, 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+  box-shadow: 10px 10px #FFD700;
+}
+
+.card img {
+  
+    
+    height: 12rem;
+    width:18rem;
+    justify-self: center;
+  
+  background-size: cover;
+  
+}
+
+ .wrapper, .card__detail p {
+  flex: 1 1 auto;
+  font-size: 0.875rem;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+
+
+
+
+
+
+
+/* .card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 27rem;
+  
+}
+
+.card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
+}
+.card__image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  filter: contrast(70%);
+  overflow: hidden;
+  position: relative;
+  transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);
+  height: 12rem;
+    width:18rem;
+    justify-self: center;
+}
+.card__image:hover{
+  filter: contrast(100%);
+}
+.card__text, .card__detail p {
+  flex: 1 1 auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+.card__detail {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.card__detail  {
+  text-align: center;
+}
+.cards__item {
+  display: flex;
+  padding: 1rem;
+  width: 25%;
+} */

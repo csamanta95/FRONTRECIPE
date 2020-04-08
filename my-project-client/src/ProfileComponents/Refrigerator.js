@@ -4,17 +4,16 @@ import ScrollUpButton from "react-scroll-up-button";
 
 class Refrigerator extends Component {
 
-    // handleDelete = (id) => {
+   
+  
+  // handleDelete = (id) => {
     // this.props.deleteActor(this.props.actor.id);
     // }
-
-    // handleRating = () => {
-    //     this.props.handleRating(this.props.actor.id, 1);
-    // }
-
     state = {
-        haveIBeenClickedOn: false
+        haveIBeenClickedOn: false,
+        // className: "liked"
       }
+
     
       handleClick = (e) => {
         this.setState({
