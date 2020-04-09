@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 // import Comment from './Comment'
-import ScrollUpButton from "react-scroll-up-button";
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 
 
 class Profile extends Component {
@@ -32,7 +32,13 @@ class Profile extends Component {
 render(){
     // console.log(this.props)
     let {name, image, rating, level, ingredient, direction} = this.props.profile
-    
+    let styles = {
+     
+      width: '40px',
+      height: '40px',
+      backgroundColor: 'pink',
+      color: 'white',
+    };
   return(
         <div className="card" >
           <img src={image} alt={name}
@@ -75,7 +81,7 @@ render(){
             
             </div>
             <div>
-            <ScrollUpButton className="scroll"/>
+            <ScrollUpButton style={styles}/>
             </div>  
 
         </div>

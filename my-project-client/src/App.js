@@ -68,7 +68,7 @@ handleResp = (resp) => {
 }
 
 handleLoginSubmit = (userInfo) => {
-console.log(userInfo)
+// console.log(userInfo)
   fetch("http://localhost:3000/login", {
     method: "POST",
     headers: {
@@ -98,7 +98,6 @@ handleRegisterSubmit = (userInfo) => {
 
 
 addPantry = (pInfo) => {
-  console.log(pInfo)
   fetch("http://localhost:3000/pantries", {
     method: "POST",
     headers: {
@@ -223,7 +222,6 @@ addPantry = (pInfo) => {
         }
     
         addProfile = (pObj) => {
-          console.log(pObj)
           this.setState({
             user: {
               ...this.state.user,
@@ -233,7 +231,6 @@ addPantry = (pInfo) => {
         }
 
         addRefrigerator = (rInfo) => {
-          console.log(rInfo)
           fetch("http://localhost:3000/refrigerators", {
             method: "POST",
             headers: {
@@ -254,7 +251,6 @@ addPantry = (pInfo) => {
         }
 
         changeTheSearchTerm = (termOfChild) => {
-        console.log(termOfChild)
           this.setState({
             searchTerm: termOfChild
           })
@@ -288,7 +284,6 @@ addPantry = (pInfo) => {
         }
 
         changeFilterTerm= (termFromChild) => {
-          console.log(termFromChild)
           this.setState({
             filterTerm: termFromChild  
           })

@@ -8,8 +8,6 @@ class ProfileContainer extends Component {
 
   render() {
     let {username} = this.props.user
-console.log(this.props.user)
-
     return (
       <div className="font">
         

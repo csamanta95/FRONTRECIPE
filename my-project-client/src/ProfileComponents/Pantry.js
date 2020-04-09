@@ -41,6 +41,13 @@ render(){
     //     return <Comment key={index} comment={comment}/>
     // <p>{arrayOfComments} </p>
     // })
+    let styles = {
+     
+      width: '40px',
+      height: '40px',
+      backgroundColor: 'pink',
+      color: 'white',
+    };
   return(
         <div className="card" >
           <img src={pimage} alt={pname}
@@ -60,7 +67,7 @@ render(){
             <p className="likes">Likes: {prating}</p>
             </div>
             <div>
-            <ScrollUpButton className="scroll"/>
+            <ScrollUpButton style={styles}/>
             </div>  
 
         </div>
