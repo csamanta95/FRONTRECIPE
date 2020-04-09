@@ -8,7 +8,7 @@ import Rdropdown from './Rdropdown'
 class RefrigeratorContainer extends Component {
 
   render() {
-    // let {id, username, actors} = this.props.director
+    let {username} = this.props.user
 // console.log(this.props.refrigerator)
 
     return (
@@ -21,7 +21,7 @@ class RefrigeratorContainer extends Component {
         changeTheSearchTerm={this.props.changeTheSearchTerm }
         />
         <br />
-         <h1 className="headingp">Share a recipe with refrigerator foods with everyone!</h1>
+         <h1 className="headingp">{username}, Share a recipe with refrigerator foods with everyone!</h1>
         <NewRefrigeratorForm token={this.props.token} 
         user={this.props.user}
           addRefrigerator={this.props.addRefrigerator}

@@ -9,6 +9,7 @@ class PantryContainer extends Component {
 
   render() {
     // console.log(this.props)
+    let {username} = this.props.user
     return (
       <div className="font">
         <Pdropdown
@@ -18,7 +19,7 @@ class PantryContainer extends Component {
         searchTerm={this.props.searchTerm} 
         changeTheSearchTerm={this.props.changeTheSearchTerm } />
         <br />
-        <h1 className="headingp">Share a recipe with pantry foods with everyone!</h1>
+        <h1 className="headingp">{username}, Share a recipe with pantry foods with everyone!</h1>
         <NewPantryForm token={this.props.token} 
         user={this.props.user}
           addPantry={this.props.addPantry}

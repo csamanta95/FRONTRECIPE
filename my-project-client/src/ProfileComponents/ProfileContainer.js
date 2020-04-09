@@ -7,7 +7,7 @@ import NewProfileForm from './NewProfileForm'
 class ProfileContainer extends Component {
 
   render() {
-    // let {id, username, actors} = this.props.director
+    let {username} = this.props.user
 console.log(this.props.user)
 
     return (
@@ -15,7 +15,7 @@ console.log(this.props.user)
         
 
         
-       <h1 className="private2">Your private recipes</h1>
+       <h1 className="private2">{username}, Your private recipes</h1>
         <ol>
           {
             this.props.user.profiles.map((profile) => { 

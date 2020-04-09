@@ -435,6 +435,11 @@ renderProfileUser = (routerProps) => {
     addProfile={this.addProfile}
   />
 }
+renderHome = (routerProps) => {
+  return <Home
+  user = {this.state.user}
+  />
+}
 
 
   render(){
@@ -449,7 +454,7 @@ renderProfileUser = (routerProps) => {
           <Route path="/pantry" render={ this.renderProfile}  />
           <Route path="/refrigerator" render={ this.renderProfile2}  />
           <Route path="/profile" render={ this.renderProfileUser}  />
-          <Route path="/" exact render={() => <Home /> } />
+          <Route path="/" exact render={ this.renderHome } />
         </Switch>
       </div>
     );
