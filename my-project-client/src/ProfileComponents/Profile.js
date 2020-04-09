@@ -36,7 +36,7 @@ render(){
      
       width: '40px',
       height: '40px',
-      backgroundColor: 'pink',
+      backgroundColor: '#DD5454',
       color: 'white',
     };
   return(
